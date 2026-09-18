@@ -30,8 +30,9 @@ public class ProductController {
         return new ResponseEntity<>(pr, HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Product> getProductById(@PathVariable Long id){
+    @GetMapping("/search")
+    public ResponseEntity<Product> getProductById(@RequestParam Long id, @RequestHeader("Authorization") String token){
+        System.out.println(token);
         Product res = service.getProductById(id);
         return new ResponseEntity<>(res, HttpStatus.OK);
     }
