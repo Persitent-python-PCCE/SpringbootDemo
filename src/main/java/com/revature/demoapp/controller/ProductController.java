@@ -2,6 +2,7 @@ package com.revature.demoapp.controller;
 
 import com.revature.demoapp.models.Product;
 import com.revature.demoapp.service.ProductService;
+import io.swagger.v3.oas.annotations.Parameter;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +20,7 @@ public class ProductController {
     }
 
     @PostMapping
-    public ResponseEntity<Product> createProduct(@RequestBody Product product){
+    public ResponseEntity<Product> createProduct(@io.swagger.v3.oas.annotations.parameters.RequestBody(description = "Product details", required = true) @RequestBody Product product){//jackson-databind
         Product res = service.createProduct(product);
         return new ResponseEntity<>(res, HttpStatus.CREATED);
     }
@@ -31,7 +32,7 @@ public class ProductController {
     }
 
     @GetMapping("/search")
-    public ResponseEntity<Product> getProductById(@RequestParam Long id, @RequestHeader("Authorization") String token){
+    public ResponseEntity<Product> getProductById(@Parameter(description = "Product's Id") @RequestParam Long id, @RequestHeader("Authorization") String token){
         System.out.println(token);
         Product res = service.getProductById(id);
         return new ResponseEntity<>(res, HttpStatus.OK);

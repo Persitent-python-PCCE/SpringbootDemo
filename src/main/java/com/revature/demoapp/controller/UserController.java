@@ -20,7 +20,7 @@ public class UserController {
     public String showLoginForm() {
         return "login";
     }
-
+//MVC -> Model View Controller
     @PostMapping("/login")
     public String login(@RequestParam String username, @RequestParam String password, Model model) {
         User user = service.loginUser(username, password);
