@@ -20,9 +20,9 @@ public class EmployeeRequest {
     @Min(18)
     private int age;
     private String role;
-    private HashMap<String, Integer> dept;
+    private HashMap<String, Long> dept;
 
-    public EmployeeRequest(String name, String email, String role, HashMap<String, Integer> dept) {
+    public EmployeeRequest(String name, String email, String role, HashMap<String, Long> dept) {
         this.name = name;
         this.email = email;
         this.role = role;
@@ -55,11 +55,11 @@ public class EmployeeRequest {
         this.role = role;
     }
 
-    public HashMap<String, Integer> getDept() {
+    public HashMap<String, Long> getDept() {
         return dept;
     }
 
-    public void setDept(HashMap<String, Integer> dept) {
+    public void setDept(HashMap<String, Long> dept) {
         this.dept = dept;
     }
 }

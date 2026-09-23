@@ -27,6 +27,10 @@ public class Departments { //findById(1)
 
     }
 
+    public Departments(Long id){
+        this.id = id;
+    }
+
     public Long getId() {
         return id;
     }

@@ -19,11 +19,12 @@ public class Employee {
     @JsonBackReference
     private Departments dept;//has - a
 
-    public Employee(Long id, String name, String email, String role) {
+    public Employee(Long id, String name, String email, String role, Departments dept) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.role = role;
+        this.dept = dept;
     }
 
     public Employee() {

@@ -1,6 +1,7 @@
 package com.revature.demoapp.controller;
 
 import com.revature.demoapp.dto.EmployeeRequest;
+import com.revature.demoapp.models.Departments;
 import com.revature.demoapp.models.Employee;
 import com.revature.demoapp.service.EmployeeService;
 import org.slf4j.Logger;
@@ -28,7 +29,7 @@ public class EmployeeController {
         log.info("");
         log.warn("");
         log.error("");
-        Employee emp = new Employee();
+        Employee emp = new Employee(null,emp_req.getName(), emp_req.getEmail(), emp_req.getRole(), new Departments(emp_req.getDept().get("id")));
         return new ResponseEntity<>(service.saveEmployee(emp), HttpStatus.CREATED);
     }
 
